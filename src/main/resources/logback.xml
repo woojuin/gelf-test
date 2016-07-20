@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <appender name="GELFUDP" class="de.siegmar.logbackgelf.GelfUdpAppender">
+    <graylogHost>graylog1.nwz.kr</graylogHost>
+    <graylogPort>12201</graylogPort>
+    <maxChunkSize>512</maxChunkSize>
+  </appender>
+
+  <appender name="GELFTCP" class="de.siegmar.logbackgelf.GelfTcpAppender">
+    <graylogHost>graylog1.nwz.kr</graylogHost>
+    <graylogPort>12201</graylogPort>
+    <layout class="de.siegmar.logbackgelf.GelfLayout">
+      <originHost>woojuin</originHost>
+<!--      <includeRawMessage>true</includeRawMessage>
+      <includeMarker>true</includeMarker>
+      <includeMdcData>true</includeMdcData>
+      <includeCallerData>true</includeCallerData>
+      <includeLevelName>true</includeLevelName>-->
+      <shortPatternLayout class="ch.qos.logback.classic.PatternLayout">
+        <pattern>%m%nopex</pattern>
+      </shortPatternLayout>
+      <fullPatternLayout class="ch.qos.logback.classic.PatternLayout">
+        <pattern>%m</pattern>
+      </fullPatternLayout>
+    </layout>
+  </appender>
+
+  <root level="debug">
+  <appender-ref ref="GELFUDP" />
+  </root>
+
+  <root level="error">
+    <appender-ref ref="GELFTCP" />
+  </root>
+
+</configuration>
