@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class mv {
   @RequestMapping("openshift")
   public String home() {
-    return ("hello OPENSHIFT LUCKY!!!!!");
+    return ("hello OPENSHIFT PZ");
   }
 }
