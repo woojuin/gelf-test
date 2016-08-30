@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class mv {
   @RequestMapping("openshift")
   public String home() {
-    return ("hello OPENSHIFT WEBHOOK PUSH");
+    return ("hello OPENSHIFT WEBHOOK PUSH TOUR");
   }
 }
